@@ -8,12 +8,12 @@ import { Student } from '../models/student';
 })
 export class StudentService {
 
-  private url = 'https://studentmanagement-pruz.onrender.com'+'/students';
+  private url = 'https://siliconpracticebactch-2026backend.onrender.com'+'/home';
 
   constructor(private http: HttpClient) {}
 
   getAllStudents(): Observable<Student[]> {
-    return this.http.get<Student[]>(this.url);
+    return this.http.get<Student[]>(this.url + '/getAllStudent');
   }
 
   getStudentById(id: number): Observable<Student> {
