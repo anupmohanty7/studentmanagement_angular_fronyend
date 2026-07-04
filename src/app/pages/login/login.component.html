@@ -1,0 +1,29 @@
+<div class="login-page">
+
+  <div class="login-card">
+
+    <h2>Student Management Login</h2>
+
+    <form (ngSubmit)="login()">
+
+      <label>Username</label>
+      <input
+        type="text"
+        [(ngModel)]="user.username"
+        name="username"
+        required>
+
+      <label>Password</label>
+      <input
+        type="password"
+        [(ngModel)]="user.password"
+        name="password"
+        required>
+
+      <button type="submit">Login</button>
+
+    </form>
+
+  </div>
+
+</div>

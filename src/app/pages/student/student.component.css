@@ -1,0 +1,72 @@
+.container {
+  width: 95%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.form-box {
+  width: 500px;
+  margin: auto;
+  padding: 25px;
+  background: #f3f4f6;
+  border-radius: 10px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+}
+
+.gender-box {
+  margin-top: 12px;
+  display: flex;
+  gap: 20px;
+}
+
+.gender-box input {
+  width: auto;
+}
+
+button {
+  margin-top: 15px;
+  margin-right: 10px;
+  padding: 10px 15px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.search-box {
+  margin: 25px 0;
+}
+
+.search-box input {
+  width: 250px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #111827;
+  color: white;
+}
+
+td {
+  text-align: center;
+}

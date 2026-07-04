@@ -1,0 +1,50 @@
+.container{
+    width:90%;
+    margin:auto;
+    margin-top:40px;
+}
+
+h1{
+    text-align:center;
+}
+
+.card-container{
+    display:flex;
+    justify-content:space-between;
+    margin-top:40px;
+    gap:20px;
+}
+
+.card{
+
+    flex:1;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:30px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+}
+
+button{
+
+    padding:12px 20px;
+
+    background:green;
+
+    color:white;
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:6px;
+
+}
