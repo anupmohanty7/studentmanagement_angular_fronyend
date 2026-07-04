@@ -8,7 +8,7 @@ import { Student } from '../models/student';
 })
 export class StudentService {
 
-  private url = 'http://localhost:8080/students';
+  private url = 'https://studentmanagement-pruz.onrender.com'+'/students';
 
   constructor(private http: HttpClient) {}
 
