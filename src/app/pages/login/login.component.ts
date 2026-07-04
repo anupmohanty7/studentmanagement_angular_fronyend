@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 
 import { LoginService } from '../../services/login.service';
 import { User } from '../../models/user';
+import { Student } from '../../models/student';
+import { StudentService } from '../../services/student.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,7 @@ import { User } from '../../models/user';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-
+    students: Student[] = [];
   user: User = {
     username: '',
     password: ''
@@ -22,7 +24,8 @@ export class LoginComponent {
 
   constructor(
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private studentService: StudentService
   ) {}
 
   login(): void {
@@ -40,4 +43,15 @@ export class LoginComponent {
       }
     });
   }
+   getAllStudents(): void {
+      this.studentService.getAllStudents().subscribe({
+        next: (data: Student[]) => {
+          this.students = data;
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
+    }
+  
 }
