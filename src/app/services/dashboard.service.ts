@@ -9,7 +9,7 @@ import { DashboardResponse } from '../models/dashboard-response';
 })
 export class DashboardService {
 
-  private url = 'http://localhost:8080/dashboard';
+  private url = 'https://student-management-backend-rbdz.onrender.com/dashboard';
 
   constructor(private http: HttpClient) { }
 

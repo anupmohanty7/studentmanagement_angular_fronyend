@@ -9,12 +9,12 @@ import { Student } from '../models/student';
 })
 export class StudentService {
 
-  private url = 'http://localhost:8080/students';
+  private url = 'https://student-management-backend-rbdz.onrender.com/students';
 
   constructor(private http: HttpClient) { }
 
   getAllStudents(): Observable<Student[]> {
-    return this.http.get<Student[]>(this.url);
+    return this.http.get<Student[]>(`${this.url}/getAllStudents`);
   }
 
   getStudentById(id: number): Observable<Student> {
@@ -38,5 +38,4 @@ export class StudentService {
   searchStudent(name: string): Observable<Student[]> {
     return this.http.get<Student[]>(`${this.url}/search/${name}`);
   }
-
 }
