@@ -1,1 +1,185 @@
-<button (click)="getAllStudents()">Refresh</button>
+<div class="container">
+
+    <h1>Student Management System</h1>
+
+    <div class="form-container">
+
+        <h2>{{ isEdit ? 'Update Student' : 'Add Student' }}</h2>
+
+        <form (ngSubmit)="isEdit ? updateStudent() : saveStudent()">
+
+            <input
+                type="hidden"
+                [(ngModel)]="student.id"
+                name="id">
+
+            <input
+                type="text"
+                placeholder="Enter Name"
+                [(ngModel)]="student.name"
+                name="name"
+                required>
+
+            <input
+                type="email"
+                placeholder="Enter Email"
+                [(ngModel)]="student.email"
+                name="email"
+                required>
+
+            <input
+                type="text"
+                placeholder="Enter Mobile Number"
+                [(ngModel)]="student.mobile"
+                name="mobile"
+                required>
+
+            <input
+                type="text"
+                placeholder="Enter Course"
+                [(ngModel)]="student.course"
+                name="course"
+                required>
+
+            <input
+                type="text"
+                placeholder="Enter Address"
+                [(ngModel)]="student.address"
+                name="address"
+                required>
+
+            <label>Gender</label>
+
+            <div class="gender">
+
+                <label>
+                    <input
+                        type="radio"
+                        [(ngModel)]="student.gender"
+                        name="gender"
+                        value="Male">
+                    Male
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        [(ngModel)]="student.gender"
+                        name="gender"
+                        value="Female">
+                    Female
+                </label>
+
+            </div>
+
+            <input
+                type="date"
+                [(ngModel)]="student.dob"
+                name="dob"
+                required>
+
+            <button type="submit">
+
+                {{ isEdit ? 'Update Student' : 'Save Student' }}
+
+            </button>
+
+            <button
+                type="button"
+                *ngIf="isEdit"
+                (click)="cancelEdit()">
+
+                Cancel
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <hr>
+
+    <div class="search">
+
+        <input
+            type="text"
+            placeholder="Search Student By Name"
+            [(ngModel)]="searchName">
+
+        <button (click)="searchStudent()">
+            Search
+        </button>
+
+        <button (click)="getAllStudents()">
+            Refresh
+        </button>
+
+    </div>
+
+    <table border="1" cellpadding="10">
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Name</th>
+
+                <th>Email</th>
+
+                <th>Mobile</th>
+
+                <th>Course</th>
+
+                <th>Address</th>
+
+                <th>Gender</th>
+
+                <th>Date Of Birth</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let student of students">
+
+                <td>{{student.id}}</td>
+
+                <td>{{student.name}}</td>
+
+                <td>{{student.email}}</td>
+
+                <td>{{student.mobile}}</td>
+
+                <td>{{student.course}}</td>
+
+                <td>{{student.address}}</td>
+
+                <td>{{student.gender}}</td>
+
+                <td>{{student.dob}}</td>
+
+                <td>
+
+                    <button (click)="editStudent(student)">
+                        Edit
+                    </button>
+
+                    <button (click)="deleteStudent(student.id)">
+                        Delete
+                    </button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

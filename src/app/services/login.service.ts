@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 import { User } from '../models/user';
 
 @Injectable({
@@ -8,11 +9,16 @@ import { User } from '../models/user';
 })
 export class LoginService {
 
-  private url = 'https://studentmanagement-pruz.onrender.com'+'/login';
+  private url = 'http://localhost:8080/login';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   login(user: User): Observable<string> {
-    return this.http.post(this.url, user, { responseType: 'text' });
+
+    return this.http.post(this.url, user, {
+      responseType: 'text'
+    });
+
   }
+
 }

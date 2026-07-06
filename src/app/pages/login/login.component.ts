@@ -16,7 +16,7 @@ import { StudentService } from '../../services/student.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-    students: Student[] = [];
+  
   user: User = {
     username: '',
     password: ''
@@ -43,15 +43,6 @@ export class LoginComponent {
       }
     });
   }
-   getAllStudents(): void {
-      this.studentService.getAllStudents().subscribe({
-        next: (data: Student[]) => {
-          this.students = data;
-        },
-        error: (err) => {
-          console.error(err);
-        }
-      });
-    }
+  
   
 }

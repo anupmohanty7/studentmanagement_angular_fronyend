@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 import { Student } from '../models/student';
 
 @Injectable({
@@ -8,12 +9,12 @@ import { Student } from '../models/student';
 })
 export class StudentService {
 
-  private url = 'https://siliconpracticebactch-2026backend.onrender.com'+'/home';
+  private url = 'http://localhost:8080/students';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAllStudents(): Observable<Student[]> {
-    return this.http.get<Student[]>(this.url + '/getAllStudent');
+    return this.http.get<Student[]>(this.url);
   }
 
   getStudentById(id: number): Observable<Student> {
@@ -29,10 +30,13 @@ export class StudentService {
   }
 
   deleteStudent(id: number): Observable<string> {
-    return this.http.delete(`${this.url}/${id}`, { responseType: 'text' });
+    return this.http.delete(`${this.url}/${id}`, {
+      responseType: 'text'
+    });
   }
 
   searchStudent(name: string): Observable<Student[]> {
     return this.http.get<Student[]>(`${this.url}/search/${name}`);
   }
+
 }
